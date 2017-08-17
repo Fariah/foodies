@@ -4,13 +4,14 @@ var Schema = mongoose.Schema;
 
 
 var RoomsSchema = new Schema({
-    user_id: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: 'Users'
     },
     name: {
         type: String,
-        Required: 'Kindly enter the name of the room'
+        Required: 'Kindly enter the name of the room',
+        trim: true
     },
     status: {
         type: [{

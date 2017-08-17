@@ -7,7 +7,7 @@ var UserSchema = new Schema({
     name: {
         type: String,
         Required: 'Kindly enter the name of the user',
-        default: ""
+        trim: true
     },
     status: {
         type: [{

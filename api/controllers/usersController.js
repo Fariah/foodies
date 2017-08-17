@@ -15,7 +15,7 @@ exports.list_all_users = function(req, res) {
 
 
 
-exports.create_a_user = function(req, res) {
+exports.create_user = function(req, res) {
     var new_user = new Users(req.body);
     new_user.save(function(err, user) {
         if (err)
@@ -25,7 +25,7 @@ exports.create_a_user = function(req, res) {
 };
 
 
-exports.read_a_user = function(req, res) {
+exports.get_user = function(req, res) {
     Users.findById(req.params.userId, function(err, user) {
         if (err)
             res.send(err);
@@ -34,7 +34,7 @@ exports.read_a_user = function(req, res) {
 };
 
 
-exports.update_a_user = function(req, res) {
+exports.update_user = function(req, res) {
     Users.findOneAndUpdate({_id: req.params.userId}, req.body, {new: true}, function(err, user) {
         if (err)
             res.send(err);
@@ -43,7 +43,7 @@ exports.update_a_user = function(req, res) {
 };
 
 
-exports.delete_a_user = function(req, res) {
+exports.delete_user = function(req, res) {
 
 
     Users.remove({

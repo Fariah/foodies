@@ -2,55 +2,52 @@
 
 
 var mongoose = require('mongoose'),
-    Foodies = mongoose.model('Foodies');
+    Rooms = mongoose.model('Rooms');
 
-exports.list_all_foodies = function(req, res) {
-    Foodies.find({}, function(err, foodies) {
+exports.list_all_rooms = function(req, res) {
+    Rooms.find({}, function(err, rooms) {
         if (err)
             res.send(err);
-        res.json(foodies);
+        res.json(rooms);
     });
 };
 
 
-
-
-exports.create_a_foody = function(req, res) {
-    var new_foody = new Foodies(req.body);
-    new_foody.save(function(err, foody) {
+exports.create_room = function(req, res) {
+    var new_room = new Rooms(req.body);
+    console.log('req.body: ', req.body);
+    new_room.save(function(err, room) {
         if (err)
             res.send(err);
-        res.json(foody);
+        res.json(room);
     });
 };
 
 
-exports.read_a_foody = function(req, res) {
-    Foodies.findById(req.params.foodyId, function(err, foody) {
+exports.get_room = function(req, res) {
+    Rooms.findById(req.params.roomId, function(err, room) {
         if (err)
             res.send(err);
-        res.json(foody);
+        res.json(room);
     });
 };
 
 
-exports.update_a_foody = function(req, res) {
-    Foodies.findOneAndUpdate({_id: req.params.foodyId}, req.body, {new: true}, function(err, foody) {
+exports.update_room = function(req, res) {
+    Rooms.findOneAndUpdate({_id: req.params.roomId}, req.body, {new: true}, function(err, room) {
         if (err)
             res.send(err);
-        res.json(foody);
+        res.json(room);
     });
 };
 
 
-exports.delete_a_foody = function(req, res) {
-
-
-    Foodies.remove({
-        _id: req.params.foodyId
-    }, function(err, foody) {
+exports.delete_room = function(req, res) {
+    Rooms.remove({
+        _id: req.params.roomId
+    }, function(err, room) {
         if (err)
             res.send(err);
-        res.json({ message: 'Foody successfully deleted' });
+        res.json({ message: 'Room successfully deleted' });
     });
 };
