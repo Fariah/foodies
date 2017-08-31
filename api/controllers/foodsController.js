@@ -13,6 +13,7 @@ exports.list_all_foods = function(req, res) {
 };
 
 exports.create_food = function(req, res) {
+    console.log('req.body: ', req.body);
     var new_food = new Foods(req.body);
     new_food.save(function(err, food) {
         if (err)

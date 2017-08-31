@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 
 
 var ContributionsSchema = new Schema({
-    user_id: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: 'Users'
     },
-    room_id: {
+    roomId: {
         type: Schema.Types.ObjectId,
         ref: 'Rooms'
     },

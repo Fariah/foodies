@@ -44,12 +44,11 @@ module.exports = function(app) {
 
 
     //############ contributions Routes ############
-    app.route('/contributions')
-        .get(contributionsController.list_all_contributions)
-        .post(contributionsController.create_contribution);
+    app.route('/contributions/:roomId')
+        .get(contributionsController.get_contribution);
 
-    app.route('/contributions/:contributionId')
-        .get(contributionsController.get_contribution)
+    app.route('/contributions/:roomId/:userId')
+        .post(contributionsController.create_contribution)
         .put(contributionsController.update_contribution)
         .delete(contributionsController.delete_contribution);
     //######################################

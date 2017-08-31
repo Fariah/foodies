@@ -4,9 +4,13 @@ var Schema = mongoose.Schema;
 
 
 var FoodsSchema = new Schema({
-    user_id: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: 'Users'
+    },
+    roomId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Rooms'
     },
     name: {
         type: String,
